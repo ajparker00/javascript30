@@ -19,27 +19,83 @@
 
     // Regular
 
+    console.log("Hello");
+
     // Interpolated
+    //%s
+
+    console.log("Hello I am a %s string!", "💩");
 
     // Styled
+    //style text or whatever by putting %c in front of it and then interpolate it with style by passing arguments
+
+    console.log("%c I am some great text", "font-size: 25px; background: yellow");
 
     // warning!
+    //give us a warning and stack trace to where it got called
+
+    console.warn("OH NOOO");
 
     // Error :|
+    //display an error in the console will not throw an error
+    //also gives you a stack trace
+    console.error("OH NOOO");
 
     // Info
+    //give you a little bit of info and suppose to give info icon
+    console.info("Beware of Crocs.  They eat 3-4 people a year.");
 
     // Testing
+    //check to see if things are true
+    //console.assert will only show up when things are wrong
+    const p = document.querySelector("p");
+    console.assert(p.classList.contains("ouch"), "That is wrong!")
 
+    console.assert(1 === 1, "That is wrong!");
+    console.assert(1 === 2, "That is wrong!"); 
+   
     // clearing
+    //clears console
+    console.clear();
 
     // Viewing DOM Elements
+    //console log an element you see the element
+    console.log(p);
+    //look at the dom element in more detail console.dir. shows you everything that lives in that element
+    console.dir(p);
+
+    console.clear();
 
     // Grouping together
+    dogs.forEach(dog => {
+      console.group(`${dog.name}`)
+      console.log(`This is ${dog.name}`)
+      console.log(`${dog.name} is ${dog.age} is years old`)
+      console.log(`${dog.name} is ${dog.age * 7} in dog years old`)
+      console.groupEnd(`$dog.name`);
+    })
 
     // counting
+    //counts the amount of time you used a data type etc
+
+    console.count("Wes");
+    console.count("Wes");
+    console.count("Steve");
+    console.count("Steve");
+    console.count("Wes");
+    console.count("Wes");
+    console.count("Steve");
+    console.count("Steve");
 
     // timing
+    //see how long something takeing without variables
+    console.time("fetching data");
+    fetch("https://api.github.com/users/wesbos")
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd("fetching data");
+        console.log(data);
+      });
 
   </script>
 </body>
